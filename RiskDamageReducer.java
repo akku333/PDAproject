@@ -1,4 +1,5 @@
-package Tree;
+package Risk;
+
 import java.io.IOException;
 
 import org.apache.hadoop.io.DoubleWritable;
@@ -8,7 +9,7 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 
 //The Map output is input to Reducer and Reducer output key and output value 
-public class TreeConditionReducer extends
+public class RiskDamageReducer extends
        Reducer<Text, IntWritable, Text, IntWritable>{
 	
 	
@@ -16,17 +17,17 @@ public class TreeConditionReducer extends
 	       throws IOException, InterruptedException {
 		int sum = 0;
 		int count=0;
-		int TreeCondition;
+		int Damage;
 		 for (IntWritable val : values)
 		 {
 			sum += val.get();           
 			count++;
 		 }	
 		 
-		 TreeCondition=sum/count;
+		 Damage=sum;
 		 
 // Passing the output key and sum of the value as output value
-		context.write(key, new IntWritable(TreeCondition));
+		context.write(key, new IntWritable(Damage));
 	
 		
 	}
