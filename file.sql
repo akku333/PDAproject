@@ -8,7 +8,7 @@ UpdatedByname String, ParentinspectionglobalID String) ROW FORMAT DELIMITED FIEL
 
 LOAD DATA INPATH 'hdfs://localhost:54310/user/hduser/combined/part-m-00000' INTO TABLE case3;
 
-INSERT OVERWRITE LOCAL DIRECTORY '/home/hduser/Downloads/case3'
+INSERT OVERWRITE LOCAL DIRECTORY '/home/hduser/Downloads/file'
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
-SELECT InspectedByname, InspectionType, count(InspectionStatus) as count FROM case3 where InspectionStatus = 'Closed' GROUP BY InspectedByname, InspectionType, InspectionStatus ORDER BY count desc;
+SELECT JourneyStartDate, JourneyDuration, count(Capacity) as count FROM file where Capacity > '10' GROUP BY Stationname, StationId, journeyduration ORDER BY count desc;
 
