@@ -8,7 +8,7 @@ import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 
-public class RiskDamageMapper extends Mapper<Object, Text, Text, IntWritable>
+public class journeyMapper extends Mapper<Object, Text, Text, IntWritable>
 {
 	//Creating object of IntWritable and Text
 	private IntWritable damagerating  = new IntWritable();
