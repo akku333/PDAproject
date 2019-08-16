@@ -9,7 +9,7 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 
 //The Map output is input to Reducer and Reducer output key and output value 
-public class RiskDamageReducer extends
+public class journeyReducer extends
        Reducer<Text, IntWritable, Text, IntWritable>{
 	
 	
