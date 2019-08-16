@@ -1,7 +1,6 @@
-Inspection = LOAD '/home/hduser/Downloads/Inspection1.csv' using PigStorage(',') AS (InspectionType:chararray, InspectionStatus:chararray, InspectionTpcondition:chararray,InspectionTpstructure:chararray, TreepointDbh:int, SwtreeconditionRation:int, SwdamageRating:INT, TreepointglobalId:chararray, GlobalId:chararray, InspectionbyName:chararray, UpdatedDate:chararray,UpdatedbyName:chararray, PernetinspectionId:chararray);
+journey = LOAD 'Users/hduser/Downloads/london-bike-sharing-system-data/journey.csv' using PigStorage(',') AS (Journey Duration:chararray, Journey ID:chararray, End Date:chararray,End Month:chararray, End Hour:int, End Station ID:int, Start Month:INT, Station ID:chararray, Station Name:chararray, Start station ID:chararray, End station ID:chararray);
 
-Treepoint = LOAD '/home/hduser/Downloads/Treepoint1.csv' using PigStorage(',') AS (ObjectId:INT, Dbh:INT, TpCondition:chararray,TreepointglobalId:chararray, Genusspecies:chararray, Riskrating:int);
+weather = LOAD 'Users/hduser/Downloads/london-bike-sharing-system-data/weather.csv' using PigStorage(',') AS (WeatherCondition:INT, Humidity:INT, Temperature:chararray,Date:chararray, Day:chararray, Month:int);
 
-Inspection_Tree = join Inspection by TreepointglobalId, Treepoint by TreepointglobalId;
-STORE Inspection_Tree INTO '/home/hduser/Downloads/combined_data' USING PigStorage (',');
-
+Final= join weather by WeatherCondition, Temperature by Date;
+STORE FinalINTO '/home/hduser/Downloads/combined_data' USING PigStorage (',');
